@@ -1,16 +1,19 @@
+
+
+
 @charset "utf-8";
 /*
-  Theme: boilerplate
-  Author: Hatena Blog Team
-  Responsive: yes
-  Description:
-    はてなブログのデザインCSSカスタマイズの土台に適したデザインテーマです。
-    このテーマをもとにしてCSSを書くと比較的楽にカスタマイズできます。
-    特定の部分（例えば記事本文の書式やコメント欄のスタイルなど）だけをコピーして使ってもかまいません。
-    もちろんそのままの状態でも、シンプルなテーマとして使うことができます。
-    このCSSおよびSCSSファイルは自由に複製・再配布できます。
-    このテーマをもとにしたデザインテーマの配布も自由です。
-  Released under the MIT License.
+Theme: boilerplate
+Author: Hatena Blog Team
+Responsive: yes
+Description:
+はてなブログのデザインCSSカスタマイズの土台に適したデザインテーマです。
+このテーマをもとにしてCSSを書くと比較的楽にカスタマイズできます。
+特定の部分（例えば記事本文の書式やコメント欄のスタイルなど）だけをコピーして使ってもかまいません。
+もちろんそのままの状態でも、シンプルなテーマとして使うことができます。
+このCSSおよびSCSSファイルは自由に複製・再配布できます。
+このテーマをもとにしたデザインテーマの配布も自由です。
+Released under the MIT License.
 */
 
 // import normalize
@@ -21,3 +24,210 @@
 
 // import core
 @import "lib/_core";
+
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=Noto+Sans+JP&family=Material+Icons&display=swap');
+
+
+/* <system section="background" selected="pattern-02"> */
+body {
+  background-image: url('/images/theme/backgrounds/2014/pattern-02.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: 0 0;
+  background-size: 40px 70px;
+  background-color: #EEEEEE;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+  body {
+    background-image: url('/images/theme/backgrounds/2014/pattern-02@2x.png');
+  }
+}
+
+
+article u {
+  text-decoration: none;
+  background: linear-gradient(transparent 50%, #fff8bb 50%);
+}
+
+article h2, h3 {
+  /*上下 左右の余白*/
+  padding: 0.25em 0.5em;
+  /*左線*/
+  border-left: solid 5px #7db4e6;
+  font-family: 'Kiwi Maru', serif;
+}
+
+article h1 {
+  border-bottom: solid 3px #cce4ff;
+  position: relative;
+  font-family: 'Kiwi Maru', serif;
+}
+
+article h1:after {
+  position: absolute;
+  content: " ";
+  display: block;
+  border-bottom: solid 3px #5472cd;
+  bottom: -3px;
+  width: 20%;
+}
+
+article p {
+  // text-indent: 1em;
+  line-height: 1.75;
+  margin-block-end: 2em;
+}
+
+#title {
+  font-size: 3.5rem;
+  text-align: center;
+  text-shadow: 2px 2px 4px silver;
+  letter-spacing: 1rem;
+}
+
+
+
+#main {
+  // c
+}
+
+#wrapper {
+  padding: 0 3% 0 0;
+  font-family: 'Noto Sans JP', sans-serif;
+
+  margin: 0 auto 0;
+  // flex: 0 0 100%;
+  // width: 80%;
+}
+
+
+@media screen and (min-width: 768px) {
+  #container {
+    width: 740px;
+  }
+  #wrapper {
+    width: 500px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #container {
+    width: 960px;
+  }
+  #wrapper {
+    width: 700px;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  #container {
+    width: 1250px;
+  }
+  #wrapper {
+    width: 900px;
+  }
+  #box2 {
+    width: 400px;
+  }
+}
+
+#box2 {
+  color: #454545;
+}
+
+
+.entry-title {
+  font-size: 1.8rem;
+}
+
+.entry-header {
+  padding-bottom: 0;
+  margin-bottom: 2em;
+  border-bottom: none;
+}
+
+.entry-category-link {
+  text-decoration: none;
+  padding: 0.1rem 0.3rem;
+  color: #FFF;
+  background-color: #1487bd;
+  border-radius: 5px;
+}
+
+.entry-category-link::before {
+  font-family: "Material Icons";
+  font-weight: 700;
+  content: "\e892";
+  position: relative;
+  left: -0.1rem;
+  top: 0.07rem;
+}
+
+
+#wrapper ul {
+  margin-block-end: 2em;
+  margin-right: 1rem;
+}
+
+#wrapper ul li{
+  list-style-type: none!important;
+  margin-left: 1rem;
+}
+
+#wrapper ul li:before {
+  font-family: "Material Icons";
+  font-weight: 700;
+  content: "\e5df";
+  position: absolute;
+  left : 3.2em;
+  color: #454545;
+}
+
+#wrapper ol {
+  list-style-type: none!important;
+  counter-reset:number;
+  line-height: 1.25;
+  margin-right: 1rem;
+  margin-block-end: 2em;
+}
+
+#wrapper ol li {
+  margin-bottom: 0.75rem;
+  margin-left: 1rem;
+  position: relative;
+}
+
+#wrapper ol li:before {
+  counter-increment: number;
+  content: counter(number) ". ";
+  position: absolute;
+  color: #454545;
+  left : -1.5em;
+
+  border-radius: 50%;
+}
+
+#box2-inner {
+  padding: 1rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.22);
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.entry, .hentry, .test-hentry {
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.22);
+  
+}
+
+.urllist-item-inner a{
+  font-size: 14.4px;
+}
+
+.hatena-module-title {
+  font-size: 1.2rem;
+}
